@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szb.Mapper.CategoryMapper">
+    <select id="categoryList" resultType="com.szb.Pojo.Category">
+        select *
+        from category;
+    </select>
+
+    <select id="selectCategoryById" resultType="com.szb.Pojo.Category">
+        select *
+        from category
+        where category.id= #{id}
+    </select>
+    <insert id="insertCategory" parameterType="com.szb.Pojo.Category">
+        insert into category(
+            <if test="id != null and id != 0">id,</if>
+            <if test="name != null and name != ' '">`name`,</if>
+            remark
+
+
+        )values (
+            <if test="id != null and id != 0">#{id},</if>
+            <if test="name != null and name != ' '">#{name}</if>
+        )
+    </insert>
+    <delete id="deleteCategoryById">
+        delete from category where id = #{id};
+    </delete>
+    <update id="updateCategoryById">
+        update category
+        <set>
+            <if test="id != null and id != 0">id = #{id},</if>
+            <if test="name != null and name != ' '">`name` = #{name},</if>
+            remark
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
