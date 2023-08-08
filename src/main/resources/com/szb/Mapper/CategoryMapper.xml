@@ -14,16 +14,7 @@
         where category.id= #{id}
     </select>
     <insert id="insertCategory" parameterType="com.szb.Pojo.Category">
-        insert into category(
-            <if test="id != null and id != 0">id,</if>
-            <if test="name != null and name != ' '">`name`,</if>
-            remark
-
-
-        )values (
-            <if test="id != null and id != 0">#{id},</if>
-            <if test="name != null and name != ' '">#{name}</if>
-        )
+        insert into category(id,name,remark) values (#{id},#{name},#{remark})
     </insert>
     <delete id="deleteCategoryById">
         delete from category where id = #{id};
