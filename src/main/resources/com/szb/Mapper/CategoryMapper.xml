@@ -16,16 +16,10 @@
     <insert id="insertCategory" parameterType="com.szb.Pojo.Category">
         insert into category(id,name,remark) values (#{id},#{name},#{remark})
     </insert>
-    <delete id="deleteCategoryById">
+    <delete id="deleteCategoryById" parameterType="Integer">
         delete from category where id = #{id};
     </delete>
-    <update id="updateCategoryById">
-        update category
-        <set>
-            <if test="id != null and id != 0">id = #{id},</if>
-            <if test="name != null and name != ' '">`name` = #{name},</if>
-            remark
-        </set>
-        where id = #{id}
+    <update id="updateCategoryById" parameterType="com.szb.Pojo.Category">
+        update category set id = #{id}, name = #{name}, remark = #{remark} where id = #{id}
     </update>
 </mapper>

@@ -11,7 +11,7 @@ import java.util.List;
 @Service   //交给Ioc
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
-    private CategoryMapper categoryMapper;
+    private CategoryMapper categoryMapper; //注入
     @Override
     public List<Category> listCategory() {
 //        LambdaQueryWrapper<Category> lqw = new LambdaQueryWrapper<>();
@@ -36,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public int updateCategoryById(Integer id, Category category) {
-        return categoryMapper.updateCategoryById(id,category);
+    public int updateCategoryById(Category category) {
+        return categoryMapper.updateCategoryById(category);
     }
 }

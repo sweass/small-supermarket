@@ -7,21 +7,21 @@ import java.util.List;
 
 public interface CategoryService {
     /**
-     *
-     * @return 查询全部供应商list集合信息
+     * 查询全部商品分类list集合信息
+     * @return List
      */
     List<Category> listCategory();
 
     /**
-     *
+     * 按id查询单个供应商信息
      * @param id
-     * @return 按id查询单个供应商信息
+     * @return Category
      */
 
     Category selectCategoryById(Integer id);
 
     /**
-     *
+     * 增加商品分类信息
      * @param category
      * @return 结果
      */
@@ -29,7 +29,7 @@ public interface CategoryService {
     int insertCategory(Category category);
 
     /**
-     *
+     * 根据id删除商品分类
      * @param id
      * @return 结果
      */
@@ -37,12 +37,11 @@ public interface CategoryService {
     int deleteCategoryById(Integer id);
 
     /**
-     *
-     * @param id
+     * 根据id更新商品分类
      * @param category
      * @return 结果
      */
 
-    int updateCategoryById(Integer id,Category category);
+    int updateCategoryById(Category category);
 
 }

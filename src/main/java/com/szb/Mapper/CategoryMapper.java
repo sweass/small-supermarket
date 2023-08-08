@@ -9,13 +9,36 @@ import java.util.List;
 @Mapper
 public interface CategoryMapper {
     /**
-     *
-     *
-     * @return 查询供应商list集合参数信息
+     * 查询所有商品分类list信息
+     * @return list
      */
-    public List<Category> categoryList();
-    public Category selectCategoryById(Integer id);
-    public int insertCategory(Category category);
-    public int deleteCategoryById(Integer id);
-    public int updateCategoryById(Integer id,Category category);
+    List<Category> categoryList();
+
+    /**
+     * 根据id查询商品分类单个信息
+     * @param id
+     * @return category
+     */
+    Category selectCategoryById(Integer id);
+
+    /**
+     * 增加商品分类信息
+     * @param category
+     * @return 结果
+     */
+    int insertCategory(Category category);
+
+    /**
+     * 根据id删除商品分类信息
+     * @param id
+     * @return 结果
+     */
+    int deleteCategoryById(Integer id);
+
+    /**
+     * 根据id更改商品分类信息
+     * @param category
+     * @return 结果
+     */
+    int updateCategoryById(Category category);
 }
